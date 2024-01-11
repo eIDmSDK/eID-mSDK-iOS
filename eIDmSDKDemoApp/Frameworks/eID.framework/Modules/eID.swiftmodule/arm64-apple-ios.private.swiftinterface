@@ -1,0 +1,136 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name eID
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import AudioToolbox
+import CommonCrypto
+import CoreGraphics
+import CoreNFC
+import CryptoKit
+import CryptoTokenKit
+import DeveloperToolsSupport
+import Foundation
+import JWTDecode
+import Lottie
+import OpenSSL
+import QuartzCore
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum eIDLogLevel : Swift.Int, Swift.CaseIterable {
+  case verbose
+  case debug
+  case info
+  case warning
+  case error
+  case none
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [eID.eIDLogLevel]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [eID.eIDLogLevel] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum eIDCertificateIndex : Swift.Int, Swift.Codable, Swift.CaseIterable {
+  case QES
+  case ES
+  case Encryption
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [eID.eIDCertificateIndex]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [eID.eIDCertificateIndex] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum eIDPassportDataAuthType : Swift.Comparable {
+  case requestCan
+  case mrzString(_: Swift.String)
+  case mrzComponents(_: Swift.String, _: Foundation.Date, _: Foundation.Date)
+  public static func < (a: eID.eIDPassportDataAuthType, b: eID.eIDPassportDataAuthType) -> Swift.Bool
+  public static func == (a: eID.eIDPassportDataAuthType, b: eID.eIDPassportDataAuthType) -> Swift.Bool
+}
+public class eIDHandler {
+  public init()
+  public func setLogLevel(_ logLevel: eID.eIDLogLevel)
+  public func showTutorial(from viewController: UIKit.UIViewController, completion: (() -> ())? = nil)
+  public func handleQRCode(from viewController: UIKit.UIViewController, qrCodeData: Swift.String, apiKeyId: Swift.String, apiKeyValue: Swift.String, completion: @escaping (eID.eIDError?) -> ())
+  public func handleDeeplink(from viewController: UIKit.UIViewController, deeplink: Swift.String, apiKeyId: Swift.String, apiKeyValue: Swift.String, completion: @escaping (eID.eIDError?) -> ())
+  public func startAuth(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, clientID: Swift.String, clientSecret: Swift.String, apiKeyId: Swift.String, apiKeyValue: Swift.String, nonce: Swift.String = UUID().uuidString, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  public func getCertificates(from viewController: UIKit.UIViewController, types: [eID.eIDCertificateIndex], completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  public func startCertificates(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, completion: @escaping (eID.eIDError?) -> ())
+  public func startCertificatesPicker(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, types: [eID.eIDCertificateIndex], completion: @escaping (Swift.Result<Swift.String?, eID.eIDError>) -> ())
+  public func verifyCertificate(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, certificateBase64String: Swift.String, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  public func signData(from viewController: UIKit.UIViewController, certIndex: Swift.Int, signatureScheme: Swift.String, dataToSign: Swift.String, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  public func decryptData(from viewController: UIKit.UIViewController, certIndex: Swift.Int, dataToDecrypt: Swift.String, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  public func startPinManagement(from viewController: UIKit.UIViewController, completion: @escaping (eID.eIDError?) -> ())
+  @objc deinit
+}
+@frozen public enum eIDEnvironment {
+  case plautDev
+  case plautTest
+  case minvTest
+  case minvProd
+  public static func == (a: eID.eIDEnvironment, b: eID.eIDEnvironment) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum eIDError : Swift.Error, Swift.Equatable {
+  case unknownTag
+  case unsupportedCardType
+  case nfcNotSupported
+  case jailbreakDetected
+  case certificatesNotIssued
+  case qrNotSupported
+  case usedTCTokenQRCode
+  case deeplinkNotSupported
+  case invalidClientIdOrSecret
+  case unsupportedSignatureScheme
+  case invalidCertificateIndex
+  case unsupportedSigningCertificate
+  case unsupportedDecryptionCertificate
+  case unsupportedSDKVersion
+  case tagConnectionLost
+  case cancelledByUser
+  case sessionTimeout
+  case certificateReadFailed
+  case userDataReadFailed
+  case signingFailed
+  case decryptionFailed
+  case authInitFailed
+  case authCompletionFailed
+  case unableToReadCodeStates
+  case networkError(Swift.String)
+  case bokInvalid
+  case bokSuspended
+  case bokBlocked
+  case bokNotActivated
+  case canInvalid
+  case mrzInvalid
+  case kepPinInvalid
+  case kepPinSuspended
+  case kepPinBlocked
+  case kepPinNotActivated
+  public static func == (a: eID.eIDError, b: eID.eIDError) -> Swift.Bool
+}
+extension eID.eIDLogLevel : Swift.Equatable {}
+extension eID.eIDLogLevel : Swift.Hashable {}
+extension eID.eIDLogLevel : Swift.RawRepresentable {}
+extension eID.eIDCertificateIndex : Swift.Equatable {}
+extension eID.eIDCertificateIndex : Swift.Hashable {}
+extension eID.eIDCertificateIndex : Swift.RawRepresentable {}
+extension eID.eIDEnvironment : Swift.Equatable {}
+extension eID.eIDEnvironment : Swift.Hashable {}
+extension eID.eIDEnvironment : Swift.Sendable {}

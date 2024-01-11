@@ -1,0 +1,4 @@
+framework module eID {
+  header "eID-Swift.h"
+  requires objc
+}
