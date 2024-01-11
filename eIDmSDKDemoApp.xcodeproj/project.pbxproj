@@ -38,6 +38,7 @@
 		84C4934527D9F8E000277CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C4934327D9F8E000277CB0 /* Main.storyboard */; };
 		84C4934727D9F8E100277CB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C4934627D9F8E100277CB0 /* Assets.xcassets */; };
 		84C4934A27D9F8E100277CB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C4934827D9F8E100277CB0 /* LaunchScreen.storyboard */; };
+		84C639722B5090CE009F6104 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 84C639712B5090CE009F6104 /* Lottie */; };
 		84DE204B29AE5193007DF277 /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE204A29AE5193007DF277 /* Environments.swift */; };
 		84E4DE5027F36E2300A2C8A2 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DE4F27F36E2300A2C8A2 /* Data+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C639722B5090CE009F6104 /* Lottie in Frameworks */,
 				8452DEDB27F5F726002AF508 /* eID.framework in Frameworks */,
 				84748386282E5DCE00DCCF60 /* JWTDecode in Frameworks */,
 				847DE0A728DC71A500EEDFBE /* ASN1Decoder in Frameworks */,
@@ -246,6 +248,7 @@
 				84748385282E5DCE00DCCF60 /* JWTDecode */,
 				8432B91F282FFAAD0026347B /* OpenSSL */,
 				847DE0A628DC71A500EEDFBE /* ASN1Decoder */,
+				84C639712B5090CE009F6104 /* Lottie */,
 			);
 			productName = SampleApp;
 			productReference = 84C4933A27D9F8E000277CB0 /* eIDmSDKDemoApp.app */;
@@ -280,6 +283,7 @@
 				84748384282E5DCD00DCCF60 /* XCRemoteSwiftPackageReference "JWTDecode.swift" */,
 				8432B91E282FFAAD0026347B /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				847DE0A528DC71A500EEDFBE /* XCRemoteSwiftPackageReference "ASN1Decoder" */,
+				84C639702B5090CE009F6104 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 84C4933B27D9F8E000277CB0 /* Products */;
 			projectDirPath = "";
@@ -613,6 +617,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		84C639702B5090CE009F6104 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -630,6 +642,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 847DE0A528DC71A500EEDFBE /* XCRemoteSwiftPackageReference "ASN1Decoder" */;
 			productName = ASN1Decoder;
+		};
+		84C639712B5090CE009F6104 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84C639702B5090CE009F6104 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
