@@ -255,6 +255,16 @@ eIDHandler().startPinManagement(from: self,
 
 <br/>
 
+## Knižnice tretích strán
+
+eID mSDK v rámci svojej funkčnosti používa nasledujúce knižnice s otvoreným zdrojovým kódom:
+
+* OpenSSL (Apache License 2.0) - https://github.com/krzyzanowskim/OpenSSL/blob/main/LICENSE.txt
+* Lottie (Apache License 2.0) - https://github.com/airbnb/lottie-ios/blob/master/LICENSE
+* JWTDecode (MIT license) - https://github.com/auth0/JWTDecode.swift/blob/master/LICENSE
+
+<br/>
+
 # eID mSDK Demo App
 
 iOS aplikácia, ktorá integruje eID mSDK API a demonštruje funkcionalitu tejto knižnice.
