@@ -47,6 +47,9 @@ class SignViewController: eIDViewController {
 
         generateSha256Hash()
 
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+
         certificateHolderView.isHidden = true
         hashHolderView.isHidden = true
         finishSigningButton.isHidden = true

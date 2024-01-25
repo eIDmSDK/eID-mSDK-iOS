@@ -25,30 +25,6 @@
 	<dict>
 		<key>NSPinnedDomains</key>
 		<dict>
-			<key>eid.plaut.sk</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSPinnedCAIdentities</key>
-				<array>
-					<dict>
-						<key>SPKI-SHA256-BASE64</key>
-						<string>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</string>
-					</dict>
-					<dict>
-						<key>SPKI-SHA256-BASE64</key>
-						<string>r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=</string>
-					</dict>
-					<dict>
-						<key>SPKI-SHA256-BASE64</key>
-						<string>C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=</string>
-					</dict>
-					<dict>
-						<key>SPKI-SHA256-BASE64</key>
-						<string>cCEWzNi/I+FkZvDg26DtaiOanBzWqPWmazmvNZUCA4U=</string>
-					</dict>
-				</array>
-			</dict>
 			<key>apigw.eid.plaut.sk</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
@@ -73,7 +49,31 @@
 					</dict>
 				</array>
 			</dict>
-			<key>login.eid.plaut.sk</key>
+			<key>eid.plaut.sk</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSPinnedCAIdentities</key>
+				<array>
+					<dict>
+						<key>SPKI-SHA256-BASE64</key>
+						<string>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</string>
+					</dict>
+					<dict>
+						<key>SPKI-SHA256-BASE64</key>
+						<string>r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=</string>
+					</dict>
+					<dict>
+						<key>SPKI-SHA256-BASE64</key>
+						<string>C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=</string>
+					</dict>
+					<dict>
+						<key>SPKI-SHA256-BASE64</key>
+						<string>cCEWzNi/I+FkZvDg26DtaiOanBzWqPWmazmvNZUCA4U=</string>
+					</dict>
+				</array>
+			</dict>
+			<key>eidas.minv.sk</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
@@ -121,7 +121,7 @@
 					</dict>
 				</array>
 			</dict>
-			<key>teidas.minv.sk</key>
+			<key>login.eid.plaut.sk</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
@@ -145,7 +145,7 @@
 					</dict>
 				</array>
 			</dict>
-			<key>eidas.minv.sk</key>
+			<key>teidas.minv.sk</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
