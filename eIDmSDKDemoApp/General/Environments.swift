@@ -56,6 +56,19 @@ extension eIDEnvironment {
     var apiKeyId: String { return clientId }
     var apiKeyValue: String { return clientSecret }
 
+    var idTokenUrl: URL {
+        switch self {
+        case .plautDev:
+            return URL(string: "https://dev.eid.plaut.sk/eDocIdP-eid32/profile/oidc/token")!
+        case .plautTest:
+            return URL(string: "https://identity.eid.plaut.sk/idp/profile/oidc/token")!
+        case .minvTest:
+            return URL(string: "https://teidas.minv.sk/idp/profile/oidc/token")!
+        case .minvProd:
+            return URL(string: "https://eidas.minv.sk/idp/profile/oidc/token")!
+        }
+    }
+
     // MARK: - init
 
     init?(key: String) {

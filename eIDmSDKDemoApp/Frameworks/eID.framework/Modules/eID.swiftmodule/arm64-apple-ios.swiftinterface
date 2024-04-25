@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name eID
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name eID
 import AVFoundation
 import AudioToolbox
 import CommonCrypto
@@ -20,6 +19,7 @@ import SwiftUI
 import UIKit
 import WebKit
 import _Concurrency
+import _CoreNFC_UIKit
 import _StringProcessing
 import _SwiftConcurrencyShims
 public enum eIDLogLevel : Swift.Int, Swift.CaseIterable {
@@ -64,9 +64,10 @@ public class eIDHandler {
   public init()
   public func setLogLevel(_ logLevel: eID.eIDLogLevel)
   public func showTutorial(from viewController: UIKit.UIViewController, completion: (() -> ())? = nil)
-  public func handleQRCode(from viewController: UIKit.UIViewController, qrCodeData: Swift.String, apiKeyId: Swift.String, apiKeyValue: Swift.String, completion: @escaping (eID.eIDError?) -> ())
-  public func handleDeeplink(from viewController: UIKit.UIViewController, deeplink: Swift.String, apiKeyId: Swift.String, apiKeyValue: Swift.String, completion: @escaping (eID.eIDError?) -> ())
-  public func startAuth(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, clientID: Swift.String, clientSecret: Swift.String, apiKeyId: Swift.String, apiKeyValue: Swift.String, nonce: Swift.String = UUID().uuidString, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  public func handleQRCode(from viewController: UIKit.UIViewController, qrCodeData: Swift.String, apiKeyId: Swift.String?, apiKeyValue: Swift.String?, completion: @escaping (eID.eIDError?) -> ())
+  public func handleDeeplink(from viewController: UIKit.UIViewController, deeplink: Swift.String, apiKeyId: Swift.String?, apiKeyValue: Swift.String?, completion: @escaping (eID.eIDError?) -> ())
+  public func startAuth(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, clientID: Swift.String, clientSecret: Swift.String, apiKeyId: Swift.String?, apiKeyValue: Swift.String?, nonce: Swift.String = UUID().uuidString, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  public func startAuth(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, clientID: Swift.String, apiKeyId: Swift.String?, apiKeyValue: Swift.String?, nonce: Swift.String = UUID().uuidString, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
   public func getCertificates(from viewController: UIKit.UIViewController, types: [eID.eIDCertificateIndex], completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
   public func startCertificates(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, completion: @escaping (eID.eIDError?) -> ())
   public func startCertificatesPicker(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, types: [eID.eIDCertificateIndex], completion: @escaping (Swift.Result<Swift.String?, eID.eIDError>) -> ())
