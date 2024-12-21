@@ -15,7 +15,6 @@
 		8452DEDC27F5F726002AF508 /* eID.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8452DED927F5F723002AF508 /* eID.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8452DEDE27F60148002AF508 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452DEDD27F60148002AF508 /* UIApplication+Extensions.swift */; };
 		84748386282E5DCE00DCCF60 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 84748385282E5DCE00DCCF60 /* JWTDecode */; };
-		8476097627F5F1F100E19703 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476097527F5F1F100E19703 /* QRScannerViewController.swift */; };
 		8476097C27F5F27900E19703 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476097B27F5F27900E19703 /* Colors.swift */; };
 		8476097E27F5F2BB00E19703 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476097D27F5F2BB00E19703 /* UIView+Extensions.swift */; };
 		847DE07D28DA004900EEDFBE /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DE07C28DA004900EEDFBE /* NavigationController.swift */; };
@@ -65,7 +64,6 @@
 		8452DED927F5F723002AF508 /* eID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = eID.framework; sourceTree = "<group>"; };
 		8452DEDD27F60148002AF508 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		846208AF28330DEE00D7E14B /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		8476097527F5F1F100E19703 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		8476097B27F5F27900E19703 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8476097D27F5F2BB00E19703 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		847DE07C28DA004900EEDFBE /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 				84C4934127D9F8E000277CB0 /* ViewController.swift */,
 				847DE08028DA1CE900EEDFBE /* SignViewController.swift */,
 				847DE08228DA1CF700EEDFBE /* DecryptViewController.swift */,
-				8476097527F5F1F100E19703 /* QRScannerViewController.swift */,
 				844B8A942B3F33A5007BCDE5 /* EnvironmentsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -317,7 +314,6 @@
 			files = (
 				847DE07D28DA004900EEDFBE /* NavigationController.swift in Sources */,
 				848B3F48291D13C000DECF7E /* Bundle+Localization.swift in Sources */,
-				8476097627F5F1F100E19703 /* QRScannerViewController.swift in Sources */,
 				847DE08328DA1CF700EEDFBE /* DecryptViewController.swift in Sources */,
 				847DE0AD28E04CF900EEDFBE /* Bundle+Extensions.swift in Sources */,
 				8437719D282FEE2700000529 /* Certificate.swift in Sources */,
@@ -517,7 +513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = sk.plaut.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -560,7 +556,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = sk.plaut.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

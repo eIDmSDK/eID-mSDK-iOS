@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bHl-rY-oIo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bHl-rY-oIo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -39,10 +39,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="726"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsg-ay-Bld">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="641"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="581"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PLR-92-lHd">
-                                                <rect key="frame" x="20" y="20" width="374" height="601"/>
+                                                <rect key="frame" x="20" y="20" width="374" height="541"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHj-j2-GX2">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
@@ -130,23 +130,8 @@
                                                             <action selector="testAuthCode" destination="BYZ-38-t0r" eventType="touchUpInside" id="LPn-Ob-yUI"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHq-da-7G0" customClass="MenuButton" customModule="eIDmSDKDemoApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="240" width="374" height="40"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="ww4-fd-ZM7"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <color key="tintColor" name="eidBlue"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                        <state key="normal" title="SKENOVAŤ QR" image="qrcode.viewfinder" catalog="system">
-                                                            <color key="titleColor" name="eidBlue"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="testAuthQR" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kl0-9f-MIw"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHQ-GX-03S" customClass="MenuButton" customModule="eIDmSDKDemoApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="300" width="374" height="40"/>
+                                                        <rect key="frame" x="0.0" y="240" width="374" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="4CN-FP-AUr"/>
                                                         </constraints>
@@ -161,7 +146,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7d-rM-vne" customClass="MenuButton" customModule="eIDmSDKDemoApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="360" width="374" height="40"/>
+                                                        <rect key="frame" x="0.0" y="300" width="374" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="Zc7-p4-MZJ"/>
                                                         </constraints>
@@ -176,7 +161,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4e-en-IqL" customClass="MenuButton" customModule="eIDmSDKDemoApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="420" width="374" height="40"/>
+                                                        <rect key="frame" x="0.0" y="360" width="374" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="DwV-JW-MHm"/>
                                                         </constraints>
@@ -191,7 +176,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp4-VL-hD9" customClass="MenuButton" customModule="eIDmSDKDemoApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="480" width="374" height="40"/>
+                                                        <rect key="frame" x="0.0" y="420" width="374" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="KXS-aj-xFb"/>
                                                         </constraints>
@@ -206,7 +191,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfV-8c-Cp5">
-                                                        <rect key="frame" x="0.0" y="540" width="374" height="40"/>
+                                                        <rect key="frame" x="0.0" y="480" width="374" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="hel-rq-WwA"/>
                                                         </constraints>
@@ -229,7 +214,7 @@
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djD-CP-mQ2">
-                                                        <rect key="frame" x="0.0" y="600" width="374" height="1"/>
+                                                        <rect key="frame" x="0.0" y="540" width="374" height="1"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="Azl-5h-4oc"/>
@@ -985,80 +970,6 @@
             </objects>
             <point key="canvasLocation" x="363.768115942029" y="-423.21428571428572"/>
         </scene>
-        <!--Scanner View Controller-->
-        <scene sceneID="m0U-E0-XIl">
-            <objects>
-                <viewController storyboardIdentifier="QRScannerViewController" id="Meh-Ha-wCb" customClass="QRScannerViewController" customModule="eIDmSDKDemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9H7-9O-lCO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZ6-fH-GdE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGD-8K-gR4">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
-                                <color key="backgroundColor" name="demo"/>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Jx9-bw-m7O">
-                                <rect key="frame" x="10" y="205.5" width="394" height="392.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" name="demo"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Jx9-bw-m7O" secondAttribute="height" id="xz6-NR-Skf"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AN-qD-p1e">
-                                <rect key="frame" x="0.0" y="366.5" width="414" height="71"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Povoľte prosím prístup ku kamere v aplikácii Nastavenia." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNh-ps-Af1">
-                                        <rect key="frame" x="30" y="15" width="354" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="yNh-ps-Af1" firstAttribute="leading" secondItem="8AN-qD-p1e" secondAttribute="leading" constant="30" id="9q7-cT-dfS"/>
-                                    <constraint firstAttribute="bottom" secondItem="yNh-ps-Af1" secondAttribute="bottom" constant="15" id="Lzs-Nc-Bgi"/>
-                                    <constraint firstAttribute="trailing" secondItem="yNh-ps-Af1" secondAttribute="trailing" constant="30" id="imM-Xb-IIS"/>
-                                    <constraint firstItem="yNh-ps-Af1" firstAttribute="top" secondItem="8AN-qD-p1e" secondAttribute="top" constant="15" id="oOa-Ku-Khi"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="peG-8V-rYZ"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="8AN-qD-p1e" firstAttribute="centerY" secondItem="9H7-9O-lCO" secondAttribute="centerY" id="0yC-qT-wrU"/>
-                            <constraint firstItem="8AN-qD-p1e" firstAttribute="leading" secondItem="peG-8V-rYZ" secondAttribute="leading" id="2LS-88-OCs"/>
-                            <constraint firstItem="kZ6-fH-GdE" firstAttribute="leading" secondItem="peG-8V-rYZ" secondAttribute="leading" id="3o3-Nj-8oG"/>
-                            <constraint firstItem="kZ6-fH-GdE" firstAttribute="top" secondItem="peG-8V-rYZ" secondAttribute="top" id="G9l-Fp-TIj"/>
-                            <constraint firstItem="peG-8V-rYZ" firstAttribute="trailing" secondItem="Jx9-bw-m7O" secondAttribute="trailing" constant="10" id="NhB-eQ-GiF"/>
-                            <constraint firstItem="JGD-8K-gR4" firstAttribute="leading" secondItem="peG-8V-rYZ" secondAttribute="leading" id="Vvz-g3-9qD"/>
-                            <constraint firstItem="peG-8V-rYZ" firstAttribute="trailing" secondItem="JGD-8K-gR4" secondAttribute="trailing" id="ZrW-lf-zV2"/>
-                            <constraint firstItem="kZ6-fH-GdE" firstAttribute="bottom" secondItem="peG-8V-rYZ" secondAttribute="bottom" id="adm-n1-pGA"/>
-                            <constraint firstItem="Jx9-bw-m7O" firstAttribute="leading" secondItem="peG-8V-rYZ" secondAttribute="leading" constant="10" id="m42-Kb-6Fu"/>
-                            <constraint firstItem="JGD-8K-gR4" firstAttribute="top" secondItem="peG-8V-rYZ" secondAttribute="top" id="nc8-Zi-aXf"/>
-                            <constraint firstItem="peG-8V-rYZ" firstAttribute="trailing" secondItem="kZ6-fH-GdE" secondAttribute="trailing" id="qsO-nx-Kh4"/>
-                            <constraint firstAttribute="bottom" secondItem="JGD-8K-gR4" secondAttribute="bottom" id="vBl-O9-ocQ"/>
-                            <constraint firstItem="peG-8V-rYZ" firstAttribute="trailing" secondItem="8AN-qD-p1e" secondAttribute="trailing" id="wDO-Z8-Le9"/>
-                            <constraint firstItem="Jx9-bw-m7O" firstAttribute="centerY" secondItem="9H7-9O-lCO" secondAttribute="centerY" id="yox-2I-8Wv"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="udF-xA-akU"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="noPersmissionsView" destination="8AN-qD-p1e" id="qEn-xs-PV9"/>
-                        <outlet property="previewHolderView" destination="kZ6-fH-GdE" id="NQN-qV-t8C"/>
-                        <outlet property="scannerRectView" destination="JGD-8K-gR4" id="UJO-vP-WMt"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="17e-Tu-9a2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1336" y="-865"/>
-        </scene>
         <!--Prostredia-->
         <scene sceneID="fPM-1A-6eM">
             <objects>
@@ -1441,16 +1352,16 @@
                                                         <rect key="frame" x="0.0" y="752.5" width="374" height="128"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZAŠIFROVANÉ DÁTA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdY-9e-l3T">
-                                                                <rect key="frame" x="105.5" y="10" width="163" height="44"/>
+                                                                <rect key="frame" x="105.5" y="10" width="163" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh9-I5-j1r">
-                                                                <rect key="frame" x="15" y="64" width="344" height="49"/>
+                                                                <rect key="frame" x="15" y="40.5" width="344" height="72.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AA BB CC DD EE FF AA BB CC DD EE FF AA BB CC DD EE FF AA BB CC DD EE FF" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezt-oH-UJS">
-                                                                        <rect key="frame" x="10" y="10" width="324" height="29"/>
+                                                                        <rect key="frame" x="10" y="10" width="324" height="52.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1605,12 +1516,11 @@
     </scenes>
     <resources>
         <image name="checkmark.circle" catalog="system" width="128" height="123"/>
-        <image name="checkmark.shield" catalog="system" width="128" height="119"/>
+        <image name="checkmark.shield" catalog="system" width="121" height="128"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
-        <image name="lock" catalog="system" width="125" height="128"/>
+        <image name="lock" catalog="system" width="111" height="128"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="121"/>
-        <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
         <image name="slovensko_sk_logo_white" width="333" height="64"/>
         <image name="text.magnifyingglass" catalog="system" width="128" height="117"/>
         <namedColor name="AccentColor">
@@ -1632,7 +1542,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

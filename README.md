@@ -24,23 +24,6 @@ Knižnica je vybuildovaná ako `eID.framework` v adresári `eIDmSDKDemoApp/Frame
     <string>E80704007F00070302</string>
   </array>
   ```
-
-- pre účely deeplinkovania nastaviť schému `eid` v xCode rozhraní alebo manuálne v `Info.plist`
-  ```
-  <key>CFBundleURLTypes</key>
-  <array>
-    <dict>
-      <key>CFBundleTypeRole</key>
-      <string>Editor</string>
-      <key>CFBundleURLName</key>
-      <string>eid</string>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>eid</string>
-      </array>
-    </dict>
-  </array>
-  ```
 - pre účely zabránenia MITM útokom nastaviť "CA Pinning" pridaním snippetu do súboru `Info.plist`
   ```
   <key>NSAppTransportSecurity</key>
@@ -282,7 +265,6 @@ iOS aplikácia, ktorá integruje eID mSDK API a demonštruje funkcionalitu tejto
 
 ## Navigácia v aplikácii
 
-- `SceneDelegate.swift` - handling QR kódov a deeplinking
-- `ViewController.swift` - autentifikácia, autentifikácia cez QR, certifikáty, manažment znalostných kódov, tutoriál
+- `ViewController.swift` - autentifikácia, certifikáty, manažment znalostných kódov, tutoriál
 - `SignViewController.swift` - načítanie certifikátu, overenie certifikátu, podpis
 - `DecryptViewController.swift` - overenie certifikátu, dešifrovanie

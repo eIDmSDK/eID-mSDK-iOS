@@ -4,70 +4,13 @@ import eID
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
 
-    /// testing eID functionality - eID supported deeplink handling
-    func handleEIDUrl(_ url: URL) {
-        print("> url: \(url.absoluteString)")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-
-            let handler = eIDHandler()
-            handler.setLogLevel(.verbose)
-
-            if url.absoluteString.contains("qr=true") {
-                // if url containts qr=true it means it's from QR code
-                handler.handleQRCode(from: UIApplication.topViewController()!,
-                                     qrCodeData: url.absoluteString,
-                                     apiKeyId: eIDEnvironment.selected.apiKeyId,
-                                     apiKeyValue: eIDEnvironment.selected.apiKeyValue) { res in
-                    if let err = res {
-                        print(">> result: \(err)")
-                        if let vc = UIApplication.topViewController() {
-                            eIDErrorHandler.handleError(err, fromViewController: vc)
-                        }
-                    }
-                    else {
-                        print(">> result: success")
-                    }
-                }
-            }
-            else {
-                handler.handleDeeplink(from: UIApplication.topViewController()!,
-                                       deeplink: url.absoluteString,
-                                       apiKeyId: eIDEnvironment.selected.apiKeyId,
-                                       apiKeyValue: eIDEnvironment.selected.apiKeyValue) { res in
-                    if let err = res {
-                        print(">> result: \(err)")
-                        if let vc = UIApplication.topViewController() {
-                            eIDErrorHandler.handleError(err, fromViewController: vc)
-                        }
-                    }
-                    else {
-                        print(">> result: success")
-                    }
-                }
-            }
-        }
-    }
-
-
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        guard let url = URLContexts.first?.url else {
-            print("unknown url")
-            return
-        }
-        handleEIDUrl(url)
-    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-
-        //deeplink Open
-        if let url = connectionOptions.urlContexts.first?.url {
-            handleEIDUrl(url)
-        }
-
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

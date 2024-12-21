@@ -214,20 +214,6 @@ class ViewController: eIDViewController {
         }
     }
 
-    /// function for testing eID functionality - scan and process eID compatible QR code (see mSDK documentation)
-    @IBAction func testAuthQR() {
-        let qrScanner = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QRScannerViewController") as! QRScannerViewController
-        qrScanner.completion = { code in
-            self.dismiss(animated: true) {
-                if let scannedCode = code, scannedCode.isEmpty == false {
-                    print("scanned code: \(scannedCode)")
-                    self.handleScannedQR(scannedCode)
-                }
-            }
-        }
-        present(NavigationController(rootViewController: qrScanner), animated: true)
-    }
-
     /// function for testing eID functionality - reading certificates stored on the eID card
     @IBAction func testReadCertificates() {
         handler = eIDHandler()
@@ -291,27 +277,6 @@ class ViewController: eIDViewController {
             }
         })
     }
-
-    // MARK: - private helpers
-    
-    private func handleScannedQR(_ payload: String) {
-        let handler = eIDHandler()
-        handler.setLogLevel(.verbose)
-        handler.handleQRCode(from: self,
-                             qrCodeData: payload,
-                             apiKeyId: eIDEnvironment.selected.apiKeyId,
-                             apiKeyValue: eIDEnvironment.selected.apiKeyValue) { res in
-            if let err = res {
-                print(">> result: \(err)")
-                eIDErrorHandler.handleError(err, fromViewController: self, repeatAction: { [weak self] in
-                    self?.handleScannedQR(payload)
-                })
-            }
-            else {
-                print(">> result: success")
-            }
-        }
-    }
 }
 
 // MARK: server simulation
@@ -329,7 +294,7 @@ struct Server {
                                       "client_secret": environment.clientSecret,
                                       "code": code,
                                       "scope": "openid",
-                                      "redirect_uri": "eid://auth?success=true"]
+                                      "redirect_uri": "\(environment.scheme)://auth?success=true"]
 
         request.httpBody = params.map { "\($0)=\(($1 as? String)?.urlEncoded ?? "")" }.joined(separator: "&").data(using: .utf8)
         

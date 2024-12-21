@@ -2014,180 +2014,6 @@
           },
           {
             "kind": "Function",
-            "name": "handleQRCode",
-            "printedName": "handleQRCode(from:qrCodeData:apiKeyId:apiKeyValue:completion:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(eID.eIDError?) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "eID.eIDError?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "eIDError",
-                        "printedName": "eID.eIDError",
-                        "usr": "s:3eID8eIDErrorO"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:3eID10eIDHandlerC12handleQRCode4from10qrCodeData8apiKeyId0iJ5Value10completionySo16UIViewControllerC_S2SSgALyAA8eIDErrorOSgctF",
-            "mangledName": "$s3eID10eIDHandlerC12handleQRCode4from10qrCodeData8apiKeyId0iJ5Value10completionySo16UIViewControllerC_S2SSgALyAA8eIDErrorOSgctF",
-            "moduleName": "eID",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "handleDeeplink",
-            "printedName": "handleDeeplink(from:deeplink:apiKeyId:apiKeyValue:completion:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(eID.eIDError?) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "eID.eIDError?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "eIDError",
-                        "printedName": "eID.eIDError",
-                        "usr": "s:3eID8eIDErrorO"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:3eID10eIDHandlerC14handleDeeplink4from8deeplink8apiKeyId0gH5Value10completionySo16UIViewControllerC_S2SSgALyAA8eIDErrorOSgctF",
-            "mangledName": "$s3eID10eIDHandlerC14handleDeeplink4from8deeplink8apiKeyId0gH5Value10completionySo16UIViewControllerC_S2SSgALyAA8eIDErrorOSgctF",
-            "moduleName": "eID",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "startAuth",
             "printedName": "startAuth(from:environment:clientID:clientSecret:apiKeyId:apiKeyValue:nonce:completion:)",
             "children": [
@@ -7293,7 +7119,7 @@
     {
       "filePath": "\/Users\/makak\/_makak\/projects\/eid-sdk\/eID\/Sources\/Models\/eIDRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 3221,
+      "offset": 3237,
       "length": 5,
       "value": "false"
     },
@@ -7956,20 +7782,6 @@
       "value": "[0x61, 0x75]"
     },
     {
-      "filePath": "\/Users\/makak\/_makak\/projects\/eid-sdk\/eID\/Sources\/General\/Urls.swift",
-      "kind": "StringLiteral",
-      "offset": 84,
-      "length": 12,
-      "value": "\"eid:\/\/auth\""
-    },
-    {
-      "filePath": "\/Users\/makak\/_makak\/projects\/eid-sdk\/eID\/Sources\/General\/Urls.swift",
-      "kind": "StringLiteral",
-      "offset": 147,
-      "length": 25,
-      "value": "\"eid:\/\/auth?success=true\""
-    },
-    {
       "filePath": "\/Users\/makak\/_makak\/projects\/eid-sdk\/eID\/Sources\/Models\/Requests\/eIDEACStartRequest.swift",
       "kind": "StringLiteral",
       "offset": 129,
@@ -8434,7 +8246,7 @@
     {
       "filePath": "\/Users\/makak\/_makak\/projects\/eid-sdk\/eID\/Sources\/ViewControllers\/TutorialPageViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7310,
+      "offset": 7353,
       "length": 5,
       "value": "false"
     },

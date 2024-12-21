@@ -68,6 +68,19 @@ extension eIDEnvironment {
             return URL(string: "https://eidas.minv.sk/idp/profile/oidc/token")!
         }
     }
+    
+    var scheme: String {
+        switch self {
+        case .plautDev:
+            return "sk.plaut.eid"
+        case .plautTest:
+            return "sk.plaut.eid"
+        case .minvTest:
+            return "sk.minv.eid-test"
+        case .minvProd:
+            return "sk.minv.eid"
+        }
+    }
 
     // MARK: - init
 
