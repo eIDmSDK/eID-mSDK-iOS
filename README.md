@@ -89,10 +89,9 @@ Knižnica je vybuildovaná ako `eID.framework` v adresári `eIDmSDKDemoApp/Frame
     <string>SourceSansPro-Bold.ttf</string>
   </array>
   ```
-- eID.framework vyžaduje 3 dependencies, ktoré môžu byť integrované cez Swift Package Manager, CocoaPods, Carthage alebo ako zbuildovaný framework:
+- eID.framework vyžaduje 2 dependencies, ktoré môžu byť integrované cez Swift Package Manager, CocoaPods, Carthage alebo ako zbuildovaný framework:
     * [OpenSSL](https://github.com/krzyzanowskim/OpenSSL)
     * [Lottie](https://github.com/airbnb/lottie-ios.git)
-    * [JWTDecode](https://github.com/auth0/JWTDecode.swift)
 
 <br/>
 
