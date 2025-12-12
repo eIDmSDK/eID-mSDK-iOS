@@ -30,102 +30,6 @@ Knižnica je vybuildovaná ako `eID.framework` v adresári `eIDmSDKDemoApp/Frame
   <dict>
     <key>NSPinnedDomains</key>
     <dict>
-      <key>eid.plaut.sk</key>
-      <dict>
-        <key>NSIncludesSubdomains</key>
-        <true/>
-        <key>NSPinnedCAIdentities</key>
-        <array>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>cCEWzNi/I+FkZvDg26DtaiOanBzWqPWmazmvNZUCA4U=</string>
-          </dict>
-        </array>
-      </dict>
-      <key>apigw.eid.plaut.sk</key>
-      <dict>
-        <key>NSIncludesSubdomains</key>
-        <true/>
-        <key>NSPinnedCAIdentities</key>
-        <array>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>cCEWzNi/I+FkZvDg26DtaiOanBzWqPWmazmvNZUCA4U=</string>
-          </dict>
-        </array>
-      </dict>
-      <key>login.eid.plaut.sk </key>
-      <dict>
-        <key>NSIncludesSubdomains</key>
-        <true/>
-        <key>NSPinnedCAIdentities</key>
-        <array>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>cCEWzNi/I+FkZvDg26DtaiOanBzWqPWmazmvNZUCA4U=</string>
-          </dict>
-        </array>
-      </dict>
-      <key>identity.eid.plaut.sk </key>
-      <dict>
-        <key>NSIncludesSubdomains</key>
-        <true/>
-        <key>NSPinnedCAIdentities</key>
-        <array>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=</string>
-          </dict>
-          <dict>
-            <key>SPKI-SHA256-BASE64</key>
-            <string>cCEWzNi/I+FkZvDg26DtaiOanBzWqPWmazmvNZUCA4U=</string>
-          </dict>
-        </array>
-      </dict>
       <key>eidas.minv.sk</key>
       <dict>
         <key>NSIncludesSubdomains</key>
@@ -177,6 +81,14 @@ Knižnica je vybuildovaná ako `eID.framework` v adresári `eIDmSDKDemoApp/Frame
     </dict>
   </dict>
   ```
+- eID.framework používa 2 fonty, ktoré je potrebné nakopírovať do xCode projektu a zadefinovať v `Info.plist` (fonty sa nachádzajú v adresári `eIDmSDKDemoApp/Resources/fonts`)
+  ```
+  <key>UIAppFonts</key>     
+  <array>
+    <string>SourceSansPro-Regular.ttf</string>
+    <string>SourceSansPro-Bold.ttf</string>
+  </array>
+  ```
 - eID.framework vyžaduje 3 dependencies, ktoré môžu byť integrované cez Swift Package Manager, CocoaPods, Carthage alebo ako zbuildovaný framework:
     * [OpenSSL](https://github.com/krzyzanowskim/OpenSSL)
     * [Lottie](https://github.com/airbnb/lottie-ios.git)
@@ -197,9 +109,8 @@ Kompletná API a integračnú dokumentácia je dostupná na https://github.com/e
 ### Autentifikácia
 ```swift
 eIDHandler().startAuth(from: self,
-                       environment: .plautDev,
+                       environment: .minvTest,
                        clientID: "aclientid",
-                       clientSecret: "aclientsecret",
                        apiKeyId: "apiKeyId",
                        apiKeyValue: "apiKeyValue",
                        nonce: UUID().uuidString,

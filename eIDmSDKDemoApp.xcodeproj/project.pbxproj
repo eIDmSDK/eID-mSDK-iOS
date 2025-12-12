@@ -28,6 +28,8 @@
 		847DE0AF28E051B500EEDFBE /* eIDError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DE0AE28E051B500EEDFBE /* eIDError+Extensions.swift */; };
 		847DE0B128E07D7500EEDFBE /* eIDErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DE0B028E07D7400EEDFBE /* eIDErrorHandler.swift */; };
 		847DE0B328E1D06800EEDFBE /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DE0B228E1D06800EEDFBE /* UIScrollView+Extensions.swift */; };
+		8488424E2EE84D7F0089D406 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8488424B2EE84D7F0089D406 /* SourceSansPro-Bold.ttf */; };
+		8488424F2EE84D7F0089D406 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8488424C2EE84D7F0089D406 /* SourceSansPro-Regular.ttf */; };
 		848B3F44291CFBE600DECF7E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B3F43291CFBE600DECF7E /* Language.swift */; };
 		848B3F46291D04E100DECF7E /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B3F45291D04E100DECF7E /* DispatchQueue+Extensions.swift */; };
 		848B3F48291D13C000DECF7E /* Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B3F47291D13C000DECF7E /* Bundle+Localization.swift */; };
@@ -76,6 +78,8 @@
 		847DE0AE28E051B500EEDFBE /* eIDError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "eIDError+Extensions.swift"; sourceTree = "<group>"; };
 		847DE0B028E07D7400EEDFBE /* eIDErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eIDErrorHandler.swift; sourceTree = "<group>"; };
 		847DE0B228E1D06800EEDFBE /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
+		8488424B2EE84D7F0089D406 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
+		8488424C2EE84D7F0089D406 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		848B3F43291CFBE600DECF7E /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		848B3F45291D04E100DECF7E /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		848B3F47291D13C000DECF7E /* Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Localization.swift"; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 		8452DEE327F6030D002AF508 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8488424D2EE84D7F0089D406 /* Fonts */,
 				84C4935827D9FA6E00277CB0 /* eIDmSDKDemoApp.entitlements */,
 				84C4934B27D9F8E100277CB0 /* Info.plist */,
 				84C4934627D9F8E100277CB0 /* Assets.xcassets */,
@@ -184,6 +189,15 @@
 				847DE0B028E07D7400EEDFBE /* eIDErrorHandler.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		8488424D2EE84D7F0089D406 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8488424B2EE84D7F0089D406 /* SourceSansPro-Bold.ttf */,
+				8488424C2EE84D7F0089D406 /* SourceSansPro-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		84C4933127D9F8E000277CB0 = {
@@ -301,6 +315,8 @@
 			files = (
 				84C4934A27D9F8E100277CB0 /* LaunchScreen.storyboard in Resources */,
 				84C4934727D9F8E100277CB0 /* Assets.xcassets in Resources */,
+				8488424E2EE84D7F0089D406 /* SourceSansPro-Bold.ttf in Resources */,
+				8488424F2EE84D7F0089D406 /* SourceSansPro-Regular.ttf in Resources */,
 				84C4934527D9F8E000277CB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,9 +505,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = eIDmSDKDemoApp/Resources/eIDmSDKDemoApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YFV25F947Y;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 20;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -509,13 +525,15 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.2;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.plaut.SampleApp;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sk.minv.eidmsdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -532,9 +550,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = eIDmSDKDemoApp/Resources/eIDmSDKDemoApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YFV25F947Y;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 20;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -552,13 +570,15 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.2;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.plaut.SampleApp;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sk.minv.eidmsdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -598,7 +618,7 @@
 			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 3.6.0;
 			};
 		};
 		84748384282E5DCD00DCCF60 /* XCRemoteSwiftPackageReference "JWTDecode.swift" */ = {
@@ -606,7 +626,7 @@
 			repositoryURL = "https://github.com/auth0/JWTDecode.swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 3.3.0;
 			};
 		};
 		847DE0A528DC71A500EEDFBE /* XCRemoteSwiftPackageReference "ASN1Decoder" */ = {
@@ -622,7 +642,7 @@
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.4.3;
+				minimumVersion = 4.5.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

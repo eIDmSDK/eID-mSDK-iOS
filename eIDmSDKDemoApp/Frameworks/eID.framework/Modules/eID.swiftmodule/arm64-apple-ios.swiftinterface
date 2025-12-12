@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name eID
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name eID
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
 import AVFoundation
 import AudioToolbox
 import CommonCrypto
@@ -11,7 +11,6 @@ import CryptoKit
 import CryptoTokenKit
 import DeveloperToolsSupport
 import Foundation
-import JWTDecode
 import Lottie
 import OpenSSL
 import QuartzCore
@@ -23,6 +22,29 @@ import _Concurrency
 import _CoreNFC_UIKit
 import _StringProcessing
 import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class X509Certificate : Swift.CustomStringConvertible {
+  convenience public init(data: Foundation.Data) throws
+  public var description: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var serialNumber: Foundation.Data? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func issuer(oidString: Swift.String) -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func subject(oid: eID.OID) -> [Swift.String]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var notAfter: Foundation.Date? {
+    get
+  }
+  #endif
+  @objc deinit
+}
 public enum eIDLogLevel : Swift.Int, Swift.CaseIterable {
   case verbose
   case debug
@@ -30,7 +52,9 @@ public enum eIDLogLevel : Swift.Int, Swift.CaseIterable {
   case warning
   case error
   case none
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [eID.eIDLogLevel]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [eID.eIDLogLevel] {
@@ -40,11 +64,91 @@ public enum eIDLogLevel : Swift.Int, Swift.CaseIterable {
     get
   }
 }
+public enum OID : Swift.String {
+  case etsiQcsCompliance
+  case etsiQcsRetentionPeriod
+  case etsiQcsQcSSCD
+  case dsa
+  case ecPublicKey
+  case prime256v1
+  case ecdsaWithSHA256
+  case ecdsaWithSHA512
+  case rsaEncryption
+  case sha256WithRSAEncryption
+  case md5WithRSAEncryption
+  case sha1WithRSAEncryption
+  case sha1
+  case pkcsSha256
+  case sha2Family
+  case sha3_244
+  case sha3_256
+  case sha3_384
+  case md5
+  case pkcs7data
+  case pkcs7signedData
+  case pkcs7envelopedData
+  case emailAddress
+  case signingCertificateV2
+  case contentType
+  case messageDigest
+  case signingTime
+  case certificateExtension
+  case jurisdictionLocalityName
+  case jurisdictionStateOrProvinceName
+  case jurisdictionCountryName
+  case authorityInfoAccess
+  case qcStatements
+  case cps
+  case unotice
+  case serverAuth
+  case clientAuth
+  case ocsp
+  case caIssuers
+  case dateOfBirth
+  case sha256
+  case VeriSignEVpolicy
+  case extendedValidation
+  case organizationValidated
+  case subjectKeyIdentifier
+  case keyUsage
+  case subjectAltName
+  case issuerAltName
+  case basicConstraints
+  case cRLDistributionPoints
+  case certificatePolicies
+  case authorityKeyIdentifier
+  case extKeyUsage
+  case subjectDirectoryAttributes
+  case commonName
+  case surname
+  case serialNumber
+  case countryName
+  case localityName
+  case stateOrProvinceName
+  case streetAddress
+  case organizationName
+  case organizationalUnitName
+  case businessCategory
+  case postalCode
+  case givenName
+  case dnQualifier
+  case domainComponent
+  case userId
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum eIDCertificateIndex : Swift.Int, Swift.Codable, Swift.CaseIterable {
   case QES
   case ES
   case Encryption
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [eID.eIDCertificateIndex]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [eID.eIDCertificateIndex] {
@@ -64,28 +168,34 @@ public enum eIDPassportDataAuthType : Swift.Comparable {
 public class eIDHandler {
   public init()
   public func setLogLevel(_ logLevel: eID.eIDLogLevel)
-  public func showTutorial(from viewController: UIKit.UIViewController, completion: (() -> ())? = nil)
-  public func startAuth(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, clientID: Swift.String, clientSecret: Swift.String, apiKeyId: Swift.String?, apiKeyValue: Swift.String?, nonce: Swift.String = UUID().uuidString, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func showTutorial(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, completion: (() -> ())? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func startAuth(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, clientID: Swift.String, apiKeyId: Swift.String?, apiKeyValue: Swift.String?, nonce: Swift.String = UUID().uuidString, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getCertificates(from viewController: UIKit.UIViewController, types: [eID.eIDCertificateIndex], completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func startCertificates(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, completion: @escaping (eID.eIDError?) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func startCertificatesPicker(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, types: [eID.eIDCertificateIndex], completion: @escaping (Swift.Result<Swift.String?, eID.eIDError>) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func verifyCertificate(from viewController: UIKit.UIViewController, environment: eID.eIDEnvironment, certificateBase64String: Swift.String, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func signData(from viewController: UIKit.UIViewController, certIndex: Swift.Int, signatureScheme: Swift.String, dataToSign: Swift.String, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func decryptData(from viewController: UIKit.UIViewController, certIndex: Swift.Int, dataToDecrypt: Swift.String, completion: @escaping (Swift.Result<Swift.String, eID.eIDError>) -> ())
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func startPinManagement(from viewController: UIKit.UIViewController, completion: @escaping (eID.eIDError?) -> ())
+  #endif
   @objc deinit
-}
-@frozen public enum eIDEnvironment {
-  case plautDev
-  case plautTest
-  case minvTest
-  case minvProd
-  public static func == (a: eID.eIDEnvironment, b: eID.eIDEnvironment) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
 }
 public enum eIDError : Swift.Error, Swift.Equatable {
   case unknownTag
@@ -125,9 +235,21 @@ public enum eIDError : Swift.Error, Swift.Equatable {
   case kepPinNotActivated
   public static func == (a: eID.eIDError, b: eID.eIDError) -> Swift.Bool
 }
+@frozen public enum eIDEnvironment {
+  case minvTest
+  case minvProd
+  public static func == (a: eID.eIDEnvironment, b: eID.eIDEnvironment) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 extension eID.eIDLogLevel : Swift.Equatable {}
 extension eID.eIDLogLevel : Swift.Hashable {}
 extension eID.eIDLogLevel : Swift.RawRepresentable {}
+extension eID.OID : Swift.Equatable {}
+extension eID.OID : Swift.Hashable {}
+extension eID.OID : Swift.RawRepresentable {}
 extension eID.eIDCertificateIndex : Swift.Equatable {}
 extension eID.eIDCertificateIndex : Swift.Hashable {}
 extension eID.eIDCertificateIndex : Swift.RawRepresentable {}

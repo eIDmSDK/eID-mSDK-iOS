@@ -7,8 +7,8 @@ class ViewController: eIDViewController {
     // MARK: - Constants
 
     private struct Constants {
-        static let tutorialKey = "sk.plaut.eid.userdefaults.ShowTutorial"
-        static let languageKey = "sk.plaut.eid.userdefaults.SelectedLanguage"
+        static let tutorialKey = "sk.minv.eid.userdefaults.ShowTutorial"
+        static let languageKey = "sk.minv.eid.userdefaults.SelectedLanguage"
     }
 
     // MARK: - Properties
@@ -20,7 +20,6 @@ class ViewController: eIDViewController {
             userNameLabel.superview?.isHidden = loggedInUser == nil
             userNameLabel.text = loggedInUser
             loginButton.setTitle(loggedInUser == nil ? "PRIHLÁSIŤ SA" : "ODHLÁSIŤ SA", for: .normal)
-            loginAuthCodeButton.isHidden = loggedInUser != nil
             loginButton.backgroundColor = loggedInUser == nil ? Color.buttonBg : Color.eidBlue
         }
     }
@@ -46,7 +45,6 @@ class ViewController: eIDViewController {
     @IBOutlet private weak var environmentLabel: UILabel!
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var loginButton: MenuButton!
-    @IBOutlet private weak var loginAuthCodeButton: MenuButton!
     @IBOutlet private weak var versionLabel: UILabel!
     @IBOutlet private weak var langSKButton: UIButton!
     @IBOutlet private weak var langENButton: UIButton!
@@ -107,7 +105,7 @@ class ViewController: eIDViewController {
     }
 
     @IBAction func showTutorial() {
-        eIDHandler().showTutorial(from: self) { [weak self] in
+        eIDHandler().showTutorial(from: self, environment: .selected) { [weak self] in
             self?.showAlert(message: "Tutorial bol zatvorený.", isSuccess: true)
         }
     }
@@ -116,7 +114,7 @@ class ViewController: eIDViewController {
 
     /// function for testing eID functionality - authentication (oauth implicit flow)
     @IBAction func testAuth() {
-
+        
         // logout if already logged in
         guard loggedInUser == nil else {
             loggedInUser = nil
@@ -130,21 +128,32 @@ class ViewController: eIDViewController {
             self.handler?.startAuth(from: self,
                                     environment: eIDEnvironment.selected,
                                     clientID: eIDEnvironment.selected.clientId,
-                                    clientSecret: eIDEnvironment.selected.clientSecret,
                                     apiKeyId: eIDEnvironment.selected.apiKeyId,
                                     apiKeyValue: eIDEnvironment.selected.apiKeyValue,
                                     nonce: UUID().uuidString) { [weak self] res in
                 switch res {
                 case .success(let code):
-                    print(">> success:: id token: \(code)")
-                    if let decodedJWTBody = try? decode(jwt: code).body as AnyObject {
-                        DispatchQueue.main.async {
-                            let name = decodedJWTBody.value(forKey: "given_name") as? String
-                            let surname = decodedJWTBody.value(forKey: "family_name") as? String
-                            self?.loggedInUser = [name, surname].compactMap { $0 }.joined(separator: " ")
+                    print(">> success:: code: \(code)")
+                    print(">> ‼️ this code should be passed to the server to obtain id_token and safely sign in the user")
+                    print(">> ‼️ for testing purposes - server side logic is simulated in the app")
+                    Server.getIdToken(environment: eIDEnvironment.selected, code: code) { serverResult in
+                        switch serverResult {
+                        case .success(let idToken):
+                            if let decodedJWTBody = try? decode(jwt: idToken).body as AnyObject {
+                                DispatchQueue.main.async {
+                                    let name = decodedJWTBody.value(forKey: "given_name") as? String
+                                    let surname = decodedJWTBody.value(forKey: "family_name") as? String
+                                    self?.loggedInUser = [name, surname].compactMap { $0 }.joined(separator: " ")
+                                }
+                                print(String(describing: decodedJWTBody))
+                            }
+                        case .failure(let serverError):
+                            guard let sSelf = self else { return }
+                            let msg = "Prihlásenie bolo neúspešné."
+                            eIDErrorHandler.handleError(serverError, message: msg, fromViewController: sSelf, repeatAction: sSelf.testAuth)
                         }
-                        print(String(describing: decodedJWTBody))
                     }
+
                 case .failure(let error):
                     guard let sSelf = self else { return }
                     let msg = "Prihlásenie bolo neúspešné."
@@ -159,57 +168,9 @@ class ViewController: eIDViewController {
             completion()
         }
         else {
-            eIDHandler().showTutorial(from: self) { [weak self] in
+            eIDHandler().showTutorial(from: self, environment: .selected) { [weak self] in
                 self?.tutorialDisabled = true
                 completion()
-            }
-        }
-    }
-
-    /// function for testing eID functionality - authentication (oauth auth code flow)
-    @IBAction func testAuthCode() {
-
-        // logout if already logged in
-        guard loggedInUser == nil else {
-            loggedInUser = nil
-            return
-        }
-
-        self.handler = eIDHandler()
-        self.handler?.setLogLevel(.verbose)
-        self.handler?.startAuth(from: self,
-                                environment: eIDEnvironment.selected,
-                                clientID: eIDEnvironment.selected.clientId,
-                                apiKeyId: eIDEnvironment.selected.apiKeyId,
-                                apiKeyValue: eIDEnvironment.selected.apiKeyValue,
-                                nonce: UUID().uuidString) { [weak self] res in
-            switch res {
-            case .success(let code):
-                print(">> success:: code: \(code)")
-                print(">> ‼️ this code should be passed to the server to obtain id_token and safely sign in the user")
-                print(">> ‼️ for testing purposes - server side logic is simulated in the app")
-                Server.getIdToken(environment: eIDEnvironment.selected, code: code) { serverResult in
-                    switch serverResult {
-                    case .success(let idToken):
-                        if let decodedJWTBody = try? decode(jwt: idToken).body as AnyObject {
-                            DispatchQueue.main.async {
-                                let name = decodedJWTBody.value(forKey: "given_name") as? String
-                                let surname = decodedJWTBody.value(forKey: "family_name") as? String
-                                self?.loggedInUser = [name, surname].compactMap { $0 }.joined(separator: " ")
-                            }
-                            print(String(describing: decodedJWTBody))
-                        }
-                    case .failure(let serverError):
-                        guard let sSelf = self else { return }
-                        let msg = "Prihlásenie bolo neúspešné."
-                        eIDErrorHandler.handleError(serverError, message: msg, fromViewController: sSelf, repeatAction: sSelf.testAuthCode)
-                    }
-                }
-
-            case .failure(let error):
-                guard let sSelf = self else { return }
-                let msg = "Prihlásenie bolo neúspešné."
-                eIDErrorHandler.handleError(error, message: msg, fromViewController: sSelf, repeatAction: sSelf.testAuthCode)
             }
         }
     }
@@ -294,7 +255,7 @@ struct Server {
                                       "client_secret": environment.clientSecret,
                                       "code": code,
                                       "scope": "openid",
-                                      "redirect_uri": "\(environment.scheme)://auth?success=true"]
+                                      "redirect_uri": "\(environment.scheme)://authResult?success=true"]
 
         request.httpBody = params.map { "\($0)=\(($1 as? String)?.urlEncoded ?? "")" }.joined(separator: "&").data(using: .utf8)
         

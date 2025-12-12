@@ -3,7 +3,7 @@ import eID
 
 class EnvironmentsViewController: UIViewController {
 
-    let environments: [eIDEnvironment] = [.plautDev, .plautTest, .minvTest, .minvProd]
+    let environments: [eIDEnvironment] = [.minvTest, .minvProd]
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,4 @@
 import UIKit
-import ASN1Decoder
 import eID
 
 class DecryptViewController: eIDViewController {

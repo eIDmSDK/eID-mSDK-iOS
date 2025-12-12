@@ -17,7 +17,7 @@ class BundleEx: Bundle {
 
 public extension Bundle {
     func setLanguage(_ language: String?) {
-        let oneToken: String = "sk.plaut.eid.msdk"
+        let oneToken: String = "sk.minv.eid.msdk"
 
         DispatchQueue.once(token: oneToken) {
             object_setClass(self, BundleEx.self)
